@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* Tool used instead of the CSS shapes tool: https://bennettfeely.com/clippy/ */
+
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+    4. Areas
+        4.1 Header
+        4.2 About
+        4.3 Cards & Portfolio
+        4.4 Navigation
+        4.5 Services
+        4.6 Contact
+        4.7 Footer
+        4.8 Area background colors
+    5. Media Queries
+////////////////////////*/
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+*,
+*::before,
+*::after {
+  /* Meyer's CSS reset on index.html */
+  box-sizing: border-box;
+}
+
+/* https://coolors.co/5722cd-4b49e8-f2f0ff-ed4385-0c0c0c */
+:root {
+  --chrysler-blue-clr: #5722cd;
+  --palatinate-blue-clr: #4845e4;
+  --magnolia-clr: #f2f0ff;
+  --french-rose-clr: #ed4385;
+  --night-clr: #0c0c0c;
+  --anti-flash-white-clr: #f3f6f9;
+  --gray-clr: #7a7a7a;
+}
+
+::selection {
+  background-color: var(--french-rose-clr);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 16px;
+  min-height: 100vh;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+h1,
+h2 {
+  font-family: 'Merriweather', 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 2.5rem 0 1.5rem 0;
+}
+
+h2 {
+  font-size: 1.9rem;
+  margin: 2.25rem 0 1.5rem 0;
+}
+
+::placeholder {
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* --------------- 3.1 Reusables ----------------------- */
+.outer-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.inner-container {
+  align-items: center;
+  display: flex;
+  flex: 0 1 1280px;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.shadow-fx {
+  box-shadow: 0px 8px 7px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 8px 7px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 8px 7px 0px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-fx-2 {
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.section-padding {
+  padding-block: 8rem;
+}
+
+.gradient-bg-clr-1 {
+  background: rgb(72, 69, 228);
+  background: linear-gradient(
+    135deg,
+    rgba(72, 69, 228, 1) 0%,
+    rgba(87, 34, 205, 1) 100%
+  );
+}
+
+.btn {
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.49);
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.49);
+  border-radius: 9999px; /* Pill shape button hack */
+  border: none;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.49);
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: filter 250ms ease-in;
+  text-align: center;
+  margin-top: 2rem;
+  align-self: center;
+}
+
+.btn-medium {
+  font-size: 0.7rem;
+  padding: 1rem 3rem;
+}
+
+.btn-primary {
+  background-color: var(--french-rose-clr);
+  color: var(--anti-flash-white-clr);
+}
+
+.btn:hover {
+  filter: brightness(1.2);
+}
+
+.btn:active {
+  transform: translateY(2px);
+}
+
+a.btn:link {
+  color: #fff;
+}
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Header ------------------------- */
+header {
+  color: var(--anti-flash-white-clr);
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 92%);
+}
+
+header p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+header .jumbotron {
+  text-align: center;
+  margin-bottom: 10rem;
+}
+
+.squigglelinestripe {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url('../assets/squiggle_line_stripe.svg') top center no-repeat;
+}
+
+/* --------------- 4.2 About --------------------------- */
+.about {
+  color: var(--chrysler-blue-clr);
+  font-family: 'Merriweather', 'Trebuchet MS', sans-serif;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.about:before {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  content: 'Hello';
+  font-size: 15rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 8%;
+  z-index: -1;
+}
+
+.about h3 {
+  color: var(--chrysler-blue-clr);
+  font-family: 'Merriweather', 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  margin-block: 1rem;
+}
+
+.about .contact-us {
+  color: var(--night-clr);
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* --------------- 4.3 Cards & Portfolio ------------------- */
+.portfolio {
+  clip-path: polygon(0 0, 100% 2%, 100% 100%, 0 98%);
+  position: relative;
+}
+
+.portfolio:before {
+  color: #fff;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  content: 'Work';
+  font-size: 25rem;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 100%;
+  z-index: -1;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin-bottom: 3rem;
+  z-index: 2;
+}
+
+.card .img-wrapper {
+  flex: 0 1 200px;
+}
+
+.card-content {
+  width: 100%;
+  padding-inline: 2rem;
+}
+
+.card h2 {
+  font-family: 'Merriweather', 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-size: 1.75rem;
+  line-height: 1.5;
+  margin: 1rem 0 4rem 0;
+  text-align: left;
+  position: relative;
+}
+
+.card h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 50px;
+  height: 10px;
+  background: url('../assets/squiggle_line.svg') top center no-repeat;
+}
+
+.card p {
+  margin-block: 2rem;
+}
+
+.card a:link {
+  color: var(--chrysler-blue-clr);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 250ms ease-in;
+}
+
+.card a:visited {
+  color: var(--palatinate-blue-clr);
+}
+
+.card a:active {
+  color: var(--gray-clr);
+}
+
+.card-content a {
+  position: relative;
+}
+
+.card-content a::after {
+  content: '';
+  background-color: var(--palatinate-blue-clr);
+  position: absolute;
+  top: 8px;
+  left: 110px;
+  height: 2px;
+  width: 20%;
+  transition: width 250ms ease-in;
+}
+
+.card-content a:hover::after {
+  width: 100%;
+}
+
+/* --------------- 4.4 Navigation ------------------- */
+nav {
+  padding-block: 2rem;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  gap: 3.5rem;
+  justify-content: center;
+}
+
+nav a {
+  cursor: pointer;
+}
+
+nav a:link {
+  color: var(--anti-flash-white-clr);
+  text-decoration: none;
+  transition: all 250ms ease-in;
+}
+
+nav a:visited {
+  color: var(--magnolia-clr);
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav a:active {
+  color: var(--gray-clr);
+}
+
+a:link {
+  color: var(--chrysler-blue-clr);
+  text-decoration: none;
+  transition: all 250ms ease-in;
+}
+
+.about a:visited {
+  color: var(--palatinate-blue-clr);
+}
+
+.about a:hover {
+  text-decoration: underline;
+}
+
+.about a:active {
+  color: var(--gray-clr);
+}
+
+/* --------------- 4.5 Services ------------------- */
+#services {
+  position: relative;
+}
+
+#services .inner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+#services:before {
+  color: var(--chrysler-blue-clr);
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  content: 'services';
+  font-size: 15rem;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 8%;
+  z-index: -1;
+}
+
+.service-box {
+  border: 1.5px solid var(--chrysler-blue-clr);
+  color: var(--gray-clr);
+  flex: 0 1 350px;
+  padding: 1.5rem;
+}
+
+.service-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.service-box h3 {
+  color: var(--chrysler-blue-clr);
+  font-weight: 700;
+  font-size: 1.75rem;
+  font-family: 'Merriweather', 'Trebuchet MS', sans-serif;
+  margin-bottom: 12px;
+}
+
+.service-box p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* --------------- 4.6 Contact ------------------- */
+.contact {
+  clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+  color: #fff;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.contact label {
+  margin-bottom: 0.1rem;
+  font-weight: 700;
+}
+
+.contact input {
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  margin: 0 0 2rem 0;
+}
+
+.contact input,
+textarea {
+  padding: 0.5rem;
+}
+
+/* --------------- 4.7 Footer ------------------- */
+.copyright {
+  background-color: var(--night-clr);
+  color: var(--anti-flash-white-clr);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+/* --------------- 4.8 Area background colors ------------------- */
+.portfolio-bg-clr {
+  background-color: var(--anti-flash-white-clr);
+}
+
+/* ------------------------------- 5. Media Queries -------------------------------- */
+@media screen and (min-width: 576px) {
+  .card:nth-of-type(even) {
+    flex-direction: row;
+  }
+
+  .card:nth-of-type(odd) {
+    flex-direction: row-reverse;
+  }
+
+  .card .img-wrapper {
+    flex: 0 1 100%;
+  }
+
+  nav ul {
+    justify-content: end;
+  }
+}
